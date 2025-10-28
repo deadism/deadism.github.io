@@ -53,18 +53,12 @@
       color: #444;
     }
 
-    iframe {
-      border: none;
-      width: 100%;
-      height: 50px;
-    }
-
     #quote {
       font-style: italic;
       font-size: 0.95rem;
       color: #333;
       line-height: 1.4;
-      margin-top: 1rem;
+      margin: 1.5rem 0 0.5rem;
     }
 
     #quote-author {
@@ -98,13 +92,14 @@
   <div class="container">
     <h1>DEADISM</h1>
 
-    <!-- Updated Image -->
-    <img src="https://media1.tenor.com/m/zWW2j2qU0MsAAAAC/koguchi-yoshinori-koguchi.gif" 
-         alt="Koguchi Yoshinori drifting - Initial D" 
+    <!-- Clean cropped GIF – no black bars -->
+    <img src="https://i.imgur.com/8iK5vXz.gif"
+         alt="Koguchi drifting – Initial D"
          loading="lazy">
 
+    <!-- Dublin time (no iframe, no black bar) -->
     <div id="timezone">
-      <iframe src="https://www.timeanddate.com/worldclock/ireland/dublin" title="Current time in Dublin"></iframe>
+      Current time in Dublin: <span id="dublin-time">—</span>
     </div>
 
     <div id="quote">
@@ -116,6 +111,25 @@
       <a href="blog.html">BLOG</a>
     </nav>
   </div>
+
+  <!-- Simple clock script -->
+  <script>
+    function updateDublinTime() {
+      const options = {
+        timeZone: 'Europe/Dublin',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      };
+      const time = new Intl.DateTimeFormat('en-GB', options).format(new Date());
+      document.getElementById('dublin-time').textContent = time;
+    }
+
+    // Update immediately and every second
+    updateDublinTime();
+    setInterval(updateDublinTime, 1000);
+  </script>
 
 </body>
 </html>
