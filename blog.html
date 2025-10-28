@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLOG — DEADISM</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: "Times New Roman", Times, serif;
+      background-color: #fdfdfd;
+      color: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      letter-spacing: 2px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .post {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #fff;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: all 0.2s ease;
+    }
+
+    .post:hover {
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+
+    .post-header {
+      padding: 1.2rem 1.5rem;
+      cursor: pointer;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .post-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .post-date {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .post-content {
+      padding: 0 1.5rem 1.2rem 1.5rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #333;
+      display: none;
+      border-top: 1px solid #ddd;
+    }
+
+    .post.active .post-content {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-5px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    nav {
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const posts = document.querySelectorAll(".post");
+      posts.forEach(post => {
+        const header = post.querySelector(".post-header");
+        header.addEventListener("click", () => {
+          post.classList.toggle("active");
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <h1>BLOG</h1>
+
+  <div class="container">
+
+    <div class="post">
+      <div class="post-header">
+        <div class="post-title">Emptiness and the Digital Self</div>
+        <div class="post-date">October 5, 2025</div>
+      </div>
+      <div class="post-content">
+        Exploring how identity fragments across digital spaces, and whether self-expression online dilutes or refines
+        the person we think we are. The quiet distance of screens offers both liberation and distortion.
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <div class="post-title">Silence as a Response</div>
+        <div class="post-date">September 18, 2025</div>
+      </div>
+      <div class="post-content">
+        Sometimes the loudest statement is no statement at all.  
+        Thoughts on restraint, attention, and the fading virtue of quiet observation in an age of constant projection.
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <div class="post-title">The Art of Moving On</div>
+        <div class="post-date">August 2, 2025</div>
+      </div>
+      <div class="post-content">
+        Growth rarely announces itself. It arrives subtly — in the calm you feel where once you burned.  
+        To move on is not to forget, but to choose not to stay still.
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-header">
+        <div class="post-title">A Philosophy of Deadism</div>
+        <div class="post-date">July 12, 2025</div>
+      </div>
+      <div class="post-content">
+        Deadism rejects pretense. It is not nihilism, but acceptance — a recognition that nothing is owed meaning, yet
+        everything can be given it. In the void, we build our own structure, and in silence, we find form.
+      </div>
+    </div>
+
+  </div>
+
+  <nav>
+    <a href="index.html">HOME</a>
+  </nav>
+</body>
+</html>
