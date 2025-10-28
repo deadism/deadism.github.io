@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEADISM</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: "Times New Roman", Times, serif;
+      color: #111;
+      background-color: #fdfdfd;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .container {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      max-width: 650px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      margin: 0 0 1.5rem 0;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    #timezone {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+
+    #quote {
+      font-style: italic;
+      font-size: 0.85rem;
+      color: #444;
+      margin-top: 0.75rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    nav {
+      margin-top: 2rem;
+      font-size: 1rem;
+    }
+
+    nav a {
+      color: #111;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <script>
+    // Fixed working live UTC+1 clock
+    function updateTime() {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const dublinTime = new Date(utc + (3600000)); // UTC+1 offset
+      const hours = String(dublinTime.getHours()).padStart(2, '0');
+      const minutes = String(dublinTime.getMinutes()).padStart(2, '0');
+      const seconds = String(dublinTime.getSeconds()).padStart(2, '0');
+      document.getElementById("time").innerText = `${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateTime, 1000);
+  </script>
+</head>
+
+<body onload="updateTime()">
+
+  <div class="container">
+    <h1>DEADISM</h1>
+
+    <img src="https://i.ytimg.com/vi/1VG-9FGpEP8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCme3Xx6k0tqw45BeTqWg93uyllFA" 
+         alt="Initial D aesthetic">
+
+    <div id="timezone">
+      Current Time in Dublin — <span id="time"></span> (UTC+1)
+    </div>
+
+    <div id="quote">
+      “No matter how strong the pain is, it's our duty to move forward. You're wrong for running away from reality.” — Takahashi Ryosuke
+    </div>
+
+    <nav>
+      <a href="blog.html">blog</a>
+    </nav>
+  </div>
+
+</body>
+</html>
